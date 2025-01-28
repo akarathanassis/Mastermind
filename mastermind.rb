@@ -1,5 +1,20 @@
 module Mastermind
 
+  class Player 
+    def initialize 
+      
+    end
+
+
+    def guess 
+      # here the player is prompted to make a guess of 4 colours 
+      # one in each position 
+      # 
+      #returns a 4 element array of colours that the player guessed 
+    end
+    
+  end
+
 
 
 
