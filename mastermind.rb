@@ -12,7 +12,7 @@ module Mastermind
       # 
       #returns a 4 element array of colours that the player guessed 
     end
-    
+
   end
 
 
@@ -38,6 +38,21 @@ module Mastermind
         # 
       end
       # if 12 rounds are done and game has not finished yet, then player loses
+    end
+
+    def check_guess 
+      # this function compares the players guess to the secret code 
+      # 
+      # returns how many colours are in correct position and how many are 
+      # correct but in wrong position
+    end
+
+    def create_code 
+      # this is the function that creates a random code 
+    end
+
+    def code_was_guessed? 
+      # this function checks whether the player has guessed the code 
     end
 
 
