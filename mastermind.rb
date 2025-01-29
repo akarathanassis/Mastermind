@@ -1,17 +1,32 @@
 module Mastermind
 
   class Player 
-    def initialize 
-      
+    def initialize(name)
+      @name = name 
+
+      # initialise the players guess array
+      @guess = Array.new
     end
+    attr_reader :name
 
 
     def guess 
-      # here the player is prompted to make a guess of 4 colours 
-      # one in each position 
-      # 
-      #returns a 4 element array of colours that the player guessed 
+      # here the player is prompted to make a guess of 4 numbers 
+      puts "Make a 4 number guess: "
+      @guess = gets.strip.split("")
+
+      loop do 
+        if @guess.length == 4
+          return @guess
+        end
+        # return statement not triggered so we have an invalid code
+        puts "Invalid code, please enter a 4 number code: "
+        @guess = gets.strip.split("")
+      end
     end
+
+
+
 
   end
 
