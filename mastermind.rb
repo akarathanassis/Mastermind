@@ -95,7 +95,9 @@ module Mastermind
         end
         # computer gives feedback on guess
         feedback = check_guess(guess, code)
-        puts "Guess: #{guess.join} | Feedback: #{feedback}"
+        puts "
+              Guess: #{guess.join} | Feedback: #{feedback}
+             "
       end
       # if 12 rounds are done and game has not finished yet, then player loses
       puts "
