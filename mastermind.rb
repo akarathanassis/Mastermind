@@ -12,7 +12,7 @@ module Mastermind
 
     def guess 
       # here the player is prompted to make a guess of 4 numbers 
-      puts "Make a 4 number guess: "
+      print "Make a 4 number guess: "
       @guess = gets.strip.split("")
 
       loop do 
@@ -20,7 +20,7 @@ module Mastermind
           return @guess
         end
         # return statement not triggered so we have an invalid code
-        puts "Invalid code, please enter a 4 number code: "
+        print "Invalid code, please enter a 4 number code: "
         @guess = gets.strip.split("")
       end
     end
@@ -35,10 +35,13 @@ module Mastermind
 
   class Game 
     def initialize(player)
-      # define a 4 element array to store secret code - @code = Array.new(4)
+      # define a 4 element array to store secret code - @code = Array.new
+      @code = Array.new
+
       # define the player 
-      
+      @player = player
     end
+    attr_reader :player, :code 
 
 
 
@@ -62,8 +65,12 @@ module Mastermind
       # correct but in wrong position
     end
 
-    def create_code 
+    def create_code
       # this is the function that creates a random code 
+      4.times do
+        @code.push(rand(1..10))
+      end
+      puts @code
     end
 
     def code_was_guessed? 
