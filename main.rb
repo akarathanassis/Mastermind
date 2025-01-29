@@ -4,4 +4,4 @@ player = Mastermind::Player.new("Alex")
 
 game = Mastermind::Game.new(player)
 
-game.play_game
+game.choose_mode
