@@ -109,13 +109,14 @@ module Mastermind
       # 
       # returns how many numbers are in correct position and how many are 
       # correct but in wrong position
+      code_copy = code
       correct = 0
       correct_wrong_position = 0
       guess.each_with_index do |element, index|
-        if (element == code[index])
+        if (element == code_copy[index])
           correct += 1
         else
-          if (code.include?(element)) && !(element == code[index])
+          if (code.include?(element)) && !(element == code_copy[index])
             correct_wrong_position += 1  
           end
         end
