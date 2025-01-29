@@ -26,13 +26,16 @@ module Mastermind
       end
     end
 
+    def create_code
+      puts "Enter your secret code: "
+      code = gets.strip.split("")
+      code.map! { |x| x.to_i}
+      code
+    end
 
 
 
   end
-
-
-
 
   class Game 
     def initialize(player)
@@ -102,7 +105,6 @@ module Mastermind
       # this function checks whether the player has guessed the code 
       guess == code
     end
-
-
   end
+
 end
