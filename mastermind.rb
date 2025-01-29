@@ -3,7 +3,6 @@ module Mastermind
   class Player 
     def initialize(name)
       @name = name 
-
       # initialise the players guess array
       @guess = Array.new
     end
@@ -55,14 +54,18 @@ module Mastermind
         guess = @player.guess
         # check if the guess was correct 
         if code_was_guessed?(guess, code)
-          puts "You guessed the code! You win"
+          puts "
+                You guessed the code! You win
+               "
           return
         end
         # computer gives feedback on guess
         check_guess(guess, code)
       end
       # if 12 rounds are done and game has not finished yet, then player loses
-      puts "You failed to guess the code. You lose :("
+      puts "
+            You failed to guess the code. You lose :(
+           "
       puts "The code was: #{code}"
     end
 
@@ -76,17 +79,21 @@ module Mastermind
       guess.each_with_index do |element, index|
         if (element == code[index])
           correct += 1
-        elsif (code.include?(element)) && !(element == code[index])
-          correct_wrong_position += 1
+        else
+          if (code.include?(element)) && !(element == code[index])
+            correct_wrong_position += 1  
+          end
         end
       end
-      puts "Correct: #{correct}    Wrong Position: #{correct_wrong_position}"
+      puts "
+            Correct: #{correct}    Wrong Position: #{correct_wrong_position}
+           "
     end
 
     def create_code
       # this is the function that creates a random code 
       4.times do
-        @code.push(rand(1..9))
+        @code.push(rand(1..6))
       end
       @code
     end
