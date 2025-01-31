@@ -111,22 +111,10 @@ module Mastermind
       # 
       # returns how many numbers are in correct position and how many are 
       # correct but in wrong position
-      code_copy = code
-      correct = 0
-      correct_wrong_position = 0
-      guess.each_with_index do |element, index|
-        if (element == code_copy[index])
-          correct += 1
-        else
-          if (code.include?(element)) && !(element == code_copy[index])
-            correct_wrong_position += 1  
-          end
-        end
-      end
-      # puts "
-      #       Correct: #{correct}    Wrong Position: #{correct_wrong_position}
-      #      "
-      return "Correct: #{correct}, Wrong Position: #{correct_wrong_position}"
+      correct = code.zip(guess).count {|a,b| a == b}
+      correct_numbers = code.uniq.sum { |n| [code.count(n), guess.count(n)].min } - correct
+
+      return "Correct: #{correct}, Wrong Position: #{correct_numbers}"
     end
 
     def create_code
